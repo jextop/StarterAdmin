@@ -74,99 +74,54 @@ export default {
   // umi routes: https://umijs.org/zh/guide/router.html
   routes: [
     {
-      path: '/',
-      component: '../layouts/BlankLayout',
+      path: '/user',
+      component: '../layouts/UserLayout',
       routes: [
         {
-          path: '/user',
-          component: '../layouts/UserLayout',
-          routes: [
-            {
-              path: '/user',
-              redirect: '/user/login',
-            },
-            {
-              component: '404',
-            },
-          ],
+          name: 'login',
+          path: '/user/login',
+          component: './user/login',
         },
+      ],
+    },
+    {
+      path: '/',
+      component: '../layouts/SecurityLayout',
+      routes: [
         {
           path: '/',
           component: '../layouts/BasicLayout',
-          Routes: ['src/pages/Authorized'],
           authority: ['admin', 'user'],
           routes: [
             {
-              path: '/dashboard',
-              name: 'dashboard',
-              icon: 'dashboard',
-              routes: [],
-            },
-            {
-              path: '/form',
-              icon: 'form',
-              name: 'form',
-              routes: [],
-            },
-            {
-              path: '/list',
-              icon: 'table',
-              name: 'list',
-              routes: [
-                {
-                  path: '/list/search',
-                  name: 'search-list',
-                  component: './list/search',
-                  routes: [
-                    {
-                      path: '/list/search',
-                      redirect: '/list/search/articles',
-                    },
-                  ],
-                },
-              ],
-            },
-            {
-              path: '/profile',
-              name: 'profile',
-              icon: 'profile',
-              routes: [],
-            },
-            {
-              name: 'result',
-              icon: 'check-circle-o',
-              path: '/result',
-              routes: [],
-            },
-            {
-              name: 'exception',
-              icon: 'warning',
-              path: '/exception',
-              routes: [],
-            },
-            {
-              name: 'account',
-              icon: 'user',
-              path: '/account',
-              routes: [],
-            },
-            {
-              name: 'editor',
-              icon: 'highlight',
-              path: '/editor',
-              routes: [],
-            },
-            {
               path: '/',
-              redirect: '/dashboard/analysis',
-              authority: ['admin', 'user'],
+              redirect: '/welcome',
             },
             {
-              component: '404',
+              path: '/welcome',
+              name: 'welcome',
+              icon: 'smile',
+              component: './Welcome',
+            },
+            {
+              path: '/admin',
+              name: 'admin',
+              icon: 'crown',
+              component: './Admin',
+              authority: ['admin'],
+            },
+            {
+              component: './404',
             },
           ],
         },
+        {
+          component: './404',
+        },
       ],
+    },
+    {
+      component: './404',
     },
   ],
   // Theme for antd: https://ant.design/docs/react/customize-theme-cn
