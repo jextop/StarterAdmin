@@ -1,8 +1,8 @@
 FROM node:8
 
 # copy files
-COPY ./deploy/ /root/admin/
-WORKDIR /root/admin/
+COPY ./deploy/ /
+WORKDIR /
 
 # install
 RUN npm install http-server -g --registry=https://registry.npm.taobao.org

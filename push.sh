@@ -3,7 +3,7 @@
 # ./build.sh
 
 # img:tag repo:tag namespace server
-set admin:latest admin:latest jext registry.cn-shanghai.aliyuncs.com
+set starter_admin:latest starter_admin:latest jext registry.cn-shanghai.aliyuncs.com
 
 # workaround on windows: prefix command with winpty
 # docker login --username=xxx $4

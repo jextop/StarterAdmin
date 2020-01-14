@@ -1,7 +1,7 @@
 version: '3'
 services:
     admin:
-        image: admin:latest
+        image: starter_admin:latest
         build: .
         restart: always
         # command: ./start.sh
@@ -14,10 +14,10 @@ services:
     #        - api
         networks:
             - client
-            - api_api
+            # - api_api
 
 networks:
     client:
         driver: bridge
-    api_api:
-        external: true
+    # api_api:
+    #     external: true
