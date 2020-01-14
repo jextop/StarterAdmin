@@ -1,0 +1,23 @@
+version: '3'
+services:
+    admin:
+        image: admin:latest
+        build: .
+        restart: always
+        # command: ./start.sh
+        # working_dir: /root/code
+        # volumes:
+        #     - ./:/root/code
+        ports:
+            - 8010:8010
+    #    depends_on:
+    #        - api
+        networks:
+            - client
+            - api_api
+
+networks:
+    client:
+        driver: bridge
+    api_api:
+        external: true
