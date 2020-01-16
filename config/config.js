@@ -108,6 +108,30 @@ export default {
             },
           ],
         },
+
+        // jext
+        {
+          path: '/jext',
+          component: '../layouts/BasicLayout',
+          authority: ['admin', 'user', 'guest'],
+          routes: [
+            {
+              path: '/jext',
+              name: 'jext',
+              icon: 'profile',
+              routes: [
+                {
+                  name: 'info',
+                  icon: 'table',
+                  path: '/jext/info',
+                  component: './jext/info',
+                },
+              ],
+            },
+          ],
+        },
+
+        // samples
         {
           path: '/',
           component: '../layouts/BasicLayout',
@@ -327,7 +351,7 @@ export default {
             },
             {
               path: '/',
-              redirect: '/dashboard/analysis',
+              redirect: '/jext/info',
               authority: ['admin', 'user'],
             },
             {
