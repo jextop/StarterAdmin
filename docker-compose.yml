@@ -5,9 +5,9 @@ services:
         build: .
         restart: always
         # command: ./start.sh
-        # working_dir: /root/code
+        # working_dir: /
         # volumes:
-        #     - ./:/root/code
+        #     - ./:/
         ports:
             - 8010:8010
     #    depends_on:
