@@ -11,7 +11,7 @@ export default {
   menu: {
     locale: true,
   },
-  title: 'Ant Design Pro',
+  title: 'Jext技术社区',
   pwa: false,
   iconfontUrl: '',
 };

@@ -4,7 +4,7 @@
  * https://github.com/ant-design/ant-design-pro-layout
  */
 import ProLayout, { DefaultFooter, SettingDrawer } from '@ant-design/pro-layout';
-import React, { useEffect } from 'react';
+import React, { useEffect, Fragment } from 'react';
 import { Link } from 'umi';
 import { connect } from 'dva';
 import { Icon, Result, Button } from 'antd';
@@ -12,7 +12,9 @@ import { formatMessage } from 'umi-plugin-react/locale';
 import Authorized from '@/utils/Authorized';
 import RightContent from '@/components/GlobalHeader/RightContent';
 import { isAntDesignPro, getAuthorityFromRouter } from '@/utils/utils';
-import logo from '../assets/logo.svg';
+import logo from '../assets/logo.png';
+import beian from '../assets/beian.png';
+
 const noMatch = (
   <Result
     status="403"
@@ -37,24 +39,39 @@ const menuDataRender = menuList =>
 
 const defaultFooterDom = (
   <DefaultFooter
-    copyright="2019 蚂蚁金服体验技术部出品"
+    copyright={
+      <Fragment>
+        2020 Jext技术社区
+        {'  '}
+        沪ICP备xxxx号
+        {'  '}
+        <a
+          rel="noopener noreferrer"
+          target="_blank"
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=xxxx"
+        >
+          沪公网安备xxxx号
+        </a>
+        <img src={beian} style={{ height: 16 }} alt="beian" />
+      </Fragment>
+    }
     links={[
       {
-        key: 'Ant Design Pro',
-        title: 'Ant Design Pro',
-        href: 'https://pro.ant.design',
+        key: 'Github',
+        title: <span><Icon type="github" />开源代码</span>,
+        href: 'https://github.com/jextop',
         blankTarget: true,
       },
       {
-        key: 'github',
-        title: <Icon type="github" />,
-        href: 'https://github.com/ant-design/ant-design-pro',
+        key: '51CTO博客',
+        title: <span><Icon type="file" />博客文章</span>,
+        href: 'https://blog.51cto.com/13851865',
         blankTarget: true,
       },
       {
-        key: 'Ant Design',
-        title: 'Ant Design',
-        href: 'https://ant.design',
+        key: '51CTO学院',
+        title: <span><Icon type="video-camera" />在线课程</span>,
+        href: 'https://edu.51cto.com/sd/bda9d',
         blankTarget: true,
       },
     ]}
