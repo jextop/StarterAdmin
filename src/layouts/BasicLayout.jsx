@@ -63,15 +63,15 @@ const defaultFooterDom = (
         blankTarget: true,
       },
       {
-        key: '51CTO博客',
-        title: <span><Icon type="file" />博客文章</span>,
-        href: 'https://blog.51cto.com/13851865',
-        blankTarget: true,
-      },
-      {
         key: '51CTO学院',
         title: <span><Icon type="video-camera" />在线课程</span>,
         href: 'https://edu.51cto.com/sd/bda9d',
+        blankTarget: true,
+      },
+      {
+        key: '51CTO博客',
+        title: <span><Icon type="file" />博客文章</span>,
+        href: 'https://blog.51cto.com/13851865',
         blankTarget: true,
       },
     ]}
