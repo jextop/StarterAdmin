@@ -8,15 +8,17 @@ const IntroduceRow = React.lazy(() => import('./components/IntroduceRow'));
 class JextInfo extends Component {
   state = {};
 
-  reqRef = 0;
-  timeoutId = 0;
+  timer = undefined;
+  reqRef = undefined;
 
   componentDidMount() {
-    const { dispatch } = this.props;
     this.reqRef = requestAnimationFrame(() => {
-      dispatch({
-        type: 'jext/info',
-      });
+      this.timer = window.setInterval(() => {
+        const { dispatch } = this.props;
+        dispatch({
+          type: 'jext/info',
+        });
+      }, 1000 * 60);
     });
   }
 
@@ -25,8 +27,9 @@ class JextInfo extends Component {
     dispatch({
       type: 'jext/clear',
     });
+
+    clearInterval(this.timer);
     cancelAnimationFrame(this.reqRef);
-    clearTimeout(this.timeoutId);
   }
 
   render() {

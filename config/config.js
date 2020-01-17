@@ -77,6 +77,29 @@ export default {
       path: '/',
       component: '../layouts/BlankLayout',
       routes: [
+        // jext
+        {
+          path: '/jext',
+          component: '../layouts/BasicLayout',
+          authority: ['admin', 'user', 'guest'],
+          routes: [
+            {
+              path: '/jext',
+              name: 'jext',
+              icon: 'home',
+              routes: [
+                {
+                  name: 'info',
+                  icon: 'dashboard',
+                  path: '/jext/info',
+                  component: './jext/info',
+                },
+              ],
+            },
+          ],
+        },
+
+        // user
         {
           path: '/user',
           component: '../layouts/UserLayout',
@@ -105,28 +128,6 @@ export default {
             },
             {
               component: '404',
-            },
-          ],
-        },
-
-        // jext
-        {
-          path: '/jext',
-          component: '../layouts/BasicLayout',
-          authority: ['admin', 'user', 'guest'],
-          routes: [
-            {
-              path: '/jext',
-              name: 'jext',
-              icon: 'profile',
-              routes: [
-                {
-                  name: 'info',
-                  icon: 'table',
-                  path: '/jext/info',
-                  component: './jext/info',
-                },
-              ],
             },
           ],
         },

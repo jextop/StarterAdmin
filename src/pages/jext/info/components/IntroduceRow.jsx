@@ -47,7 +47,15 @@ const IntroduceRow = ({ loading, visitData }) => (
           <FormattedMessage id="jext.info.blog" defaultMessage="Blog" />
         }
         total={JSON.stringify(visitData.blog.count)}
-        footer={JSON.stringify(visitData.blog.reader)}
+        footer={
+          <Trend
+            flag="up"
+            style={{
+              marginRight: 16,
+            }}
+          >
+            {JSON.stringify(visitData.blog.reader)}
+          </Trend>}
         contentHeight={46}
       >
       </ChartCard>
