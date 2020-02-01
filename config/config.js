@@ -68,7 +68,6 @@ if (isAntDesignProPreview) {
 export default {
   plugins,
   hash: true,
-  history: 'hash', // 默认是 browser
   targets: {
     ie: 11,
   },

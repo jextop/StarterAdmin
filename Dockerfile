@@ -1,14 +1,12 @@
-FROM node:8
+FROM nginx:stable
 
-# copy files
-COPY ./deploy/ /
-WORKDIR /
+# web files
+COPY ./deploy/web/ /usr/share/nginx/html
 
-# install
-# RUN npm install http-server -g --registry=https://registry.npm.taobao.org
-RUN npm install -g --registry=https://registry.npm.taobao.org
+# config
+COPY ./deploy/conf/nginx.conf /etc/nginx/nginx.conf
+COPY ./deploy/conf/conf.d /etc/nginx/conf.d
 
-# do sth
-CMD ["./launch.sh"]
+WORKDIR /etc/nginx
 
 EXPOSE 8010
