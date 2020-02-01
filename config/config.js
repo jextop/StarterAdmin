@@ -68,6 +68,7 @@ if (isAntDesignProPreview) {
 export default {
   plugins,
   hash: true,
+  history: 'hash', // 默认是 browser
   targets: {
     ie: 11,
   },
@@ -353,7 +354,7 @@ export default {
             {
               path: '/',
               redirect: '/jext/info',
-              authority: ['admin', 'user'],
+              authority: ['admin', 'user', 'guest'],
             },
             {
               component: '404',
