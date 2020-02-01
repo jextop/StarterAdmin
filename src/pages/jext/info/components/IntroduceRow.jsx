@@ -98,7 +98,7 @@ const IntroduceRow = ({ loading, visitData }) => (
               marginRight: 16,
             }}
           >
-            {JSON.stringify(visitData.csdn.blog.rank) + JSON.stringify(visitData.csdn.blog.score)}
+            {JSON.stringify(visitData.csdn.blog.score) + JSON.stringify(visitData.csdn.blog.rank)}
           </Trend>
       </ChartCard>
     </Col>

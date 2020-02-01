@@ -3,8 +3,8 @@ import { info } from './service';
 const initState = {
   cto51: {
     course: {
-        count: "",
-        userCount: "",
+        count: undefined,
+        userCount: undefined,
         user: [],
     },
     blog: {
@@ -14,13 +14,15 @@ const initState = {
   },
   csdn: {
     course: {
-        count: "",
-        userCount: "",
+        count: undefined,
+        userCount: undefined,
         user: [],
     },
     blog: {
         reader: [],
         count: [],
+        score: undefined,
+        rank: undefined,
     },
   },
 };
