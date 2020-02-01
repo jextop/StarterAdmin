@@ -13,12 +13,8 @@ class JextInfo extends Component {
 
   componentDidMount() {
     this.reqRef = requestAnimationFrame(() => {
-      this.timer = window.setInterval(() => {
-        const { dispatch } = this.props;
-        dispatch({
-          type: 'jext/info',
-        });
-      }, 1000 * 60);
+      this.getInfo();
+      this.timer = window.setInterval(() => this.getInfo(), 1000 * 60);
     });
   }
 
@@ -30,6 +26,13 @@ class JextInfo extends Component {
 
     clearInterval(this.timer);
     cancelAnimationFrame(this.reqRef);
+  }
+
+  getInfo() {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'jext/info',
+    });
   }
 
   render() {

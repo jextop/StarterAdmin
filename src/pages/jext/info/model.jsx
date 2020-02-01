@@ -1,14 +1,27 @@
 import { info } from './service';
 
 const initState = {
-  course: {
-      count: null,
-      userCount: null,
-      user: [],
+  cto51: {
+    course: {
+        count: "",
+        userCount: "",
+        user: [],
+    },
+    blog: {
+        reader: [],
+        count: [],
+    },
   },
-  blog: {
-      reader: [],
-      count: [],
+  csdn: {
+    course: {
+        count: "",
+        userCount: "",
+        user: [],
+    },
+    blog: {
+        reader: [],
+        count: [],
+    },
   },
 };
 

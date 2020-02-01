@@ -22,10 +22,10 @@ const IntroduceRow = ({ loading, visitData }) => (
         bordered={false}
         loading={loading}
         title={
-          <FormattedMessage id="jext.info.course" defaultMessage="Course"/>
+          <FormattedMessage id="jext.info.course.cto51" defaultMessage="51CTO Course"/>
         }
-        total={JSON.stringify(visitData.course.count)}
-        footer={JSON.stringify(visitData.course.user)}
+        total={JSON.stringify(visitData.cto51.course.userCount)}
+        footer={JSON.stringify(visitData.cto51.course.user)}
         contentHeight={46}
       >
         <Trend
@@ -34,8 +34,29 @@ const IntroduceRow = ({ loading, visitData }) => (
             marginRight: 16,
           }}
         >
-          {JSON.stringify(visitData.course.userCount)}
+          {JSON.stringify(visitData.cto51.course.count)}
         </Trend>
+      </ChartCard>
+    </Col>
+    <Col {...topColResponsiveProps}>
+      <ChartCard
+        bordered={false}
+        loading={loading}
+        title={
+          <FormattedMessage id="jext.info.blog.cto51" defaultMessage="51CTO Blog" />
+        }
+        total={JSON.stringify(visitData.cto51.blog.count)}
+        footer={JSON.stringify(visitData.cto51.blog.reader)}
+        contentHeight={46}
+      >        
+        <Trend
+            flag="up"
+            style={{
+              marginRight: 16,
+            }}
+          >
+            {JSON.stringify(visitData.cto51.blog.rank)}
+          </Trend>
       </ChartCard>
     </Col>
 
@@ -44,20 +65,41 @@ const IntroduceRow = ({ loading, visitData }) => (
         bordered={false}
         loading={loading}
         title={
-          <FormattedMessage id="jext.info.blog" defaultMessage="Blog" />
+          <FormattedMessage id="jext.info.course.csdn" defaultMessage="CSDN Course"/>
         }
-        total={JSON.stringify(visitData.blog.count)}
-        footer={
-          <Trend
+        total={JSON.stringify(visitData.csdn.course.userCount)}
+        footer={JSON.stringify(visitData.csdn.course.user)}
+        contentHeight={46}
+      >
+        <Trend
+          flag="up"
+          style={{
+            marginRight: 16,
+          }}
+        >
+          {JSON.stringify(visitData.csdn.course.count)}
+        </Trend>
+      </ChartCard>
+    </Col>
+    <Col {...topColResponsiveProps}>
+      <ChartCard
+        bordered={false}
+        loading={loading}
+        title={
+          <FormattedMessage id="jext.info.blog.csdn" defaultMessage="CSDN Blog" />
+        }
+        total={JSON.stringify(visitData.csdn.blog.count)}
+        footer={JSON.stringify(visitData.csdn.blog.reader)}
+        contentHeight={46}
+      >
+        <Trend
             flag="up"
             style={{
               marginRight: 16,
             }}
           >
-            {JSON.stringify(visitData.blog.reader)}
-          </Trend>}
-        contentHeight={46}
-      >
+            {JSON.stringify(visitData.csdn.blog.rank) + JSON.stringify(visitData.csdn.blog.score)}
+          </Trend>
       </ChartCard>
     </Col>
   </Row>
