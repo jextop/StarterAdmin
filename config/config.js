@@ -77,6 +77,12 @@ export default {
       path: '/',
       component: '../layouts/BlankLayout',
       routes: [
+        {
+          path: '/',
+          redirect: '/jext/info',
+          authority: ['admin', 'user', 'guest'],
+        },
+
         // jext
         {
           path: '/jext',
@@ -349,11 +355,6 @@ export default {
                   component: './editor/koni',
                 },
               ],
-            },
-            {
-              path: '/',
-              redirect: '/jext/info',
-              authority: ['admin', 'user', 'guest'],
             },
             {
               component: '404',
