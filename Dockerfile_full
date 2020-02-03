@@ -1,0 +1,29 @@
+FROM nginx:latest
+
+# web files
+COPY ./ /code
+WORKDIR /code
+
+# install
+RUN apt update
+RUN apt -y install npm
+RUN npm install -g cnpm --registry=https://registry.npm.taobao.org
+
+# package
+RUN cnpm install
+RUN npm run build
+
+# copy files
+RUN cp -r ./dist/ /usr/share/nginx/html
+RUN cp ./public/favicon.png /usr/share/nginx/html
+
+# config
+COPY ./deploy/conf/nginx.conf /etc/nginx/nginx.conf
+COPY ./deploy/conf/conf.d /etc/nginx/conf.d
+
+WORKDIR /etc/nginx
+
+# delete code
+# RUN rm -rf ./code/
+
+EXPOSE 8010
