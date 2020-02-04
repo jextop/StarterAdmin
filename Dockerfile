@@ -4,8 +4,7 @@ FROM nginx:stable
 COPY ./deploy/web/ /usr/share/nginx/html
 
 # config
-COPY ./deploy/conf/nginx.conf /etc/nginx/nginx.conf
-COPY ./deploy/conf/conf.d /etc/nginx/conf.d
+COPY ./deploy/conf/ /etc/nginx/
 
 WORKDIR /etc/nginx
 
