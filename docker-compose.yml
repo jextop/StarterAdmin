@@ -74,7 +74,9 @@ services:
 
     admin:
         image: starter_admin:latest
-        build: .
+        build:
+          context: .
+          dockerfile: Dockerfile_ce
         restart: always
         ports:
             - 8010:8010
