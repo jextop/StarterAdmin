@@ -1,4 +1,4 @@
-FROM nginx:stable
+FROM nginx:latest
 
 # web files
 COPY ./deploy/web/ /usr/share/nginx/html
