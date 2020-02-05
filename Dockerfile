@@ -5,12 +5,12 @@ COPY ./ /code
 WORKDIR /code
 
 # package
-RUN cnpm install
-RUN npm run build
+RUN cnpm install; \
+    npm run build
 
 # web files
-RUN mv ./dist/* /usr/share/nginx/html
-RUN mv ./public/favicon.png /usr/share/nginx/html
+RUN mv ./dist/* /usr/share/nginx/html; \
+    mv ./public/favicon.png /usr/share/nginx/html
 
 # config
 COPY ./deploy/conf/ /etc/nginx/
