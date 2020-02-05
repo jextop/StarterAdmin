@@ -1,15 +1,14 @@
 FROM registry.cn-shanghai.aliyuncs.com/jext/starter_admin_base:latest
 
-# web files
+# copy code
 COPY ./ /code
 WORKDIR /code
 
-# package
+# package and copy web files
 RUN cnpm install; \
-    npm run build
-
-# web files
-RUN mv ./dist/* /usr/share/nginx/html; \
+    npm run build; \
+    \
+    mv ./dist/* /usr/share/nginx/html; \
     mv ./public/favicon.png /usr/share/nginx/html
 
 # config
