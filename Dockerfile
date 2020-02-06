@@ -1,5 +1,7 @@
 FROM registry.cn-shanghai.aliyuncs.com/jext/starter_admin_base:latest
 
+LABEL maintainer="Jext Community, https://github.com/jextop"
+
 # copy code
 COPY ./ /code
 WORKDIR /code

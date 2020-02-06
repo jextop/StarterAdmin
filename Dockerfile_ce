@@ -1,6 +1,8 @@
 FROM nginx:latest
 
-# web files
+LABEL maintainer="Jext Community, https://github.com/jextop"
+
+# copy web files
 COPY ./deploy/web/ /usr/share/nginx/html
 
 # config
