@@ -95,10 +95,40 @@ export default {
               icon: 'home',
               routes: [
                 {
+                  path: '/jext',
+                  redirect: '/jext/info',
+                },
+                {
                   name: 'info',
                   icon: 'dashboard',
                   path: '/jext/info',
                   component: './jext/info',
+                },
+              ],
+            },
+          ],
+        },
+
+        // setting
+        {
+          path: '/setting',
+          component: '../layouts/BasicLayout',
+          authority: ['admin', 'user', 'guest'],
+          routes: [
+            {
+              path: '/setting',
+              name: 'setting',
+              icon: 'setting',
+              routes: [
+                {
+                  path: '/setting',
+                  redirect: '/setting/chk',
+                },
+                {
+                  name: 'chk',
+                  icon: 'dashboard',
+                  path: '/setting/chk',
+                  component: './setting/chk',
                 },
               ],
             },
