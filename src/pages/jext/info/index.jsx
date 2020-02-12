@@ -1,13 +1,11 @@
 import React, { Component, Suspense } from 'react';
-import { GridContent } from '@ant-design/pro-layout';
+import { PageHeaderWrapper } from '@ant-design/pro-layout';
 import { connect } from 'dva';
 import PageLoading from './components/PageLoading';
 
 const IntroduceRow = React.lazy(() => import('./components/IntroduceRow'));
 
 class JextInfo extends Component {
-  state = {};
-
   timer = undefined;
   reqRef = undefined;
 
@@ -39,13 +37,13 @@ class JextInfo extends Component {
     const { jext, loading } = this.props;
 
     return (
-      <GridContent>
+      <PageHeaderWrapper>
         <React.Fragment>
           <Suspense fallback={<PageLoading />}>
             <IntroduceRow loading={loading} visitData={jext} />
           </Suspense>
         </React.Fragment>
-      </GridContent>
+      </PageHeaderWrapper>
     );
   }
 }
