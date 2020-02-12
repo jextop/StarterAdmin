@@ -37,7 +37,6 @@ class JextInfo extends Component {
 
   render() {
     const { jext, loading } = this.props;
-    console.log("render", jext);
 
     return (
       <GridContent>

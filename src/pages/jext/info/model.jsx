@@ -43,7 +43,6 @@ const Model = {
 
   reducers: {
     save(state, { payload }) {
-      console.log("save", state)
       return { ...state, ...payload };
     },
 
