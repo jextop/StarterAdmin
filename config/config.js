@@ -80,15 +80,14 @@ export default {
         {
           path: '/',
           redirect: '/jext/info',
-          authority: ['admin', 'user', 'guest'],
         },
 
-        // jext
         {
-          path: '/jext',
+          path: '/',
           component: '../layouts/BasicLayout',
           authority: ['admin', 'user', 'guest'],
           routes: [
+            // jext
             {
               path: '/jext',
               name: 'jext',
@@ -106,15 +105,8 @@ export default {
                 },
               ],
             },
-          ],
-        },
 
-        // setting
-        {
-          path: '/setting',
-          component: '../layouts/BasicLayout',
-          authority: ['admin', 'user', 'guest'],
-          routes: [
+            // setting
             {
               path: '/setting',
               name: 'setting',
@@ -126,7 +118,7 @@ export default {
                 },
                 {
                   name: 'chk',
-                  icon: 'dashboard',
+                  icon: 'eye',
                   path: '/setting/chk',
                   component: './setting/chk',
                 },
