@@ -49,8 +49,8 @@ services:
             - 9200:9200
             - 9300:9300
 
-    log:
-        hostname: log
+    logstash:
+        hostname: logstash
         image: registry.cn-shanghai.aliyuncs.com/hellodock/logstash:latest
         restart: always
         ports:
@@ -73,12 +73,25 @@ services:
         ports:
             - 3000:3000
 
+    alertmanager:
+        hostname: alertmanager
+        image: registry.cn-shanghai.aliyuncs.com/hellodock/alertmanager:latest
+        deploy:
+            replicas: 1
+            # placement:
+            #     constraints: [node.role == api]
+        ports:
+            - 9093:9093
+        depends_on:
+            - api
+
     prometheus:
         image: registry.cn-shanghai.aliyuncs.com/hellodock/prometheus:latest
         restart: always
         ports:
             - 9090:9090
         depends_on:
+            - alertmanager
             - api
 
     api:
@@ -93,7 +106,7 @@ services:
             - db
             - cache
             - mq
-            - log
+            - logstash
 
     admin:
         image: starter_admin:latest
