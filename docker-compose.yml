@@ -28,8 +28,6 @@ services:
         image: redis:4
         command: redis-server --appendonly yes
         restart: always
-#        volumes:
-#            - ../data/redis:/data
         ports:
             - 6379:6379
 
@@ -41,59 +39,6 @@ services:
             - 61616:61616
             - 61613:61613
             - 8161:8161
-
-    elasticsearch:
-        hostname: elasticsearch
-        image: elasticsearch:latest
-        restart: always
-        ports:
-            - 9200:9200
-            - 9300:9300
-
-    logstash:
-        hostname: logstash
-        image: registry.cn-shanghai.aliyuncs.com/hellodock/logstash:latest
-        restart: always
-        ports:
-            - 9600:9600
-            - 9601:9601
-        depends_on:
-            - elasticsearch
-
-    kibana:
-        image: registry.cn-shanghai.aliyuncs.com/hellodock/kibana:latest
-        restart: always
-        ports:
-            - 5601:5601
-        depends_on:
-            - elasticsearch
-
-    grafana:
-        image: grafana/grafana:latest
-        restart: always
-        ports:
-            - 3000:3000
-
-    alertmanager:
-        hostname: alertmanager
-        image: registry.cn-shanghai.aliyuncs.com/hellodock/alertmanager:latest
-        deploy:
-            replicas: 1
-            # placement:
-            #     constraints: [node.role == api]
-        ports:
-            - 9093:9093
-        depends_on:
-            - api
-
-    prometheus:
-        image: registry.cn-shanghai.aliyuncs.com/hellodock/prometheus:latest
-        restart: always
-        ports:
-            - 9090:9090
-        depends_on:
-            - alertmanager
-            - api
 
     api:
         hostname: api
@@ -107,7 +52,6 @@ services:
             - db
             - cache
             - mq
-            - logstash
 
     admin:
         image: starter_admin:latest
