@@ -45,7 +45,7 @@ services:
         image: registry.cn-shanghai.aliyuncs.com/jext/starter_api:latest
         restart: always
 #        volumes:
-#            - ../data/file:/tmp/file
+#            - ../data/files:/tmp/files
         ports:
             - 8011:8011
         depends_on:
