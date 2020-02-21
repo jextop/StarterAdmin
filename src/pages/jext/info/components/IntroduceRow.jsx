@@ -64,7 +64,7 @@ const IntroduceRow = ({ loading, visitData }) => (
               marginRight: 16,
             }}
           >
-            {formatNumArr(visitData.cto51.blog.rank)}
+            {formatNumArr(visitData.cto51.blog.subscribe)}
           </Trend>
       </ChartCard>
     </Col>
