@@ -106,6 +106,25 @@ export default {
               ],
             },
 
+            // 应用开发
+            {
+              path: '/application',
+              name: 'application',
+              icon: 'appstore',
+              routes: [
+                {
+                  path: '/application',
+                  redirect: '/application/track',
+                },
+                {
+                  name: 'track',
+                  icon: 'eye',
+                  path: '/application/track',
+                  component: './application/track',
+                },
+              ],
+            },
+
             // setting
             {
               path: '/setting',
