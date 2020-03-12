@@ -27,7 +27,7 @@ const Model = {
       const { msgList } = state;
       msgList.unshift(payload);
 
-      if (msgList.length > 10) {
+      if (msgList.length > 12) {
         msgList.splice(msgList.length - 1, 1);
       }
 

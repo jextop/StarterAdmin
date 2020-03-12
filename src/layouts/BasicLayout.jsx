@@ -57,21 +57,27 @@ const defaultFooterDom = (
     }
     links={[
       {
-        key: 'Github',
-        title: <span><Icon type="github" />开源代码</span>,
+        key: '全技术栈，架构师',
+        title: <span><Icon type="github" />开源项目</span>,
         href: 'https://github.com/jextop',
         blankTarget: true,
       },
       {
-        key: '51CTO学院',
+        key: '笔杆子',
+        title: <span><Icon type="file" />博客文章</span>,
+        href: 'https://blog.51cto.com/13851865',
+        blankTarget: true,
+      },
+      {
+        key: '嘴皮子',
         title: <span><Icon type="video-camera" />在线课程</span>,
         href: 'https://edu.51cto.com/sd/bda9d',
         blankTarget: true,
       },
       {
-        key: '51CTO博客',
-        title: <span><Icon type="file" />博客文章</span>,
-        href: 'https://blog.51cto.com/13851865',
+        key: '自媒体',
+        title: <span><Icon type="team" />头条号</span>,
+        href: 'https://www.toutiao.com/c/user/2172247818637383/',
         blankTarget: true,
       },
     ]}

@@ -79,7 +79,7 @@ export default {
       routes: [
         {
           path: '/',
-          redirect: '/jext/info',
+          redirect: '/application/track',
         },
 
         {
