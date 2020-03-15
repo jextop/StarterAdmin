@@ -66,17 +66,17 @@ class Check extends Component {
               sm: 1,
               xs: 1,
             }}
-            dataSource={application.msgList}
+            dataSource={application.items}
             renderItem={item => {
               return (
-                <List.Item key={item.chk}>
+                <List.Item key={item.uid}>
                   <Card
                     hoverable
                     className={styles.card}
                   >
                     <Card.Meta
-                      avatar={item.chk}
-                      title={formatArr([item.msg])}
+                      avatar={item.uid}
+                      title={formatArr([item.ip])}
                       description={
                         <Paragraph
                           className={styles.item}
@@ -84,7 +84,7 @@ class Check extends Component {
                             rows: 3,
                           }}
                         >
-                          {item.text}
+                          {item.addr}
                         </Paragraph>
                       }
                     />

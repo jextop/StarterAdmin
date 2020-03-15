@@ -1,10 +1,9 @@
 import { track } from './service';
 
 const initState = {
-  chk: undefined,
+  code: undefined,
   msg: undefined,
-  text: undefined,
-  msgList: [
+  items: [
   ],
 };
 
@@ -24,18 +23,7 @@ const Model = {
 
   reducers: {
     save(state, { payload }) {
-      const { msgList } = state;
-      msgList.unshift(payload);
-
-      if (msgList.length > 12) {
-        msgList.splice(msgList.length - 1, 1);
-      }
-
-      return {
-        ...state,
-        ...payload,
-        msgList,
-      };
+      return { ...state, ...payload };
     },
 
     clear() {
