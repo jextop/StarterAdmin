@@ -13,7 +13,7 @@ class Check extends Component {
   componentDidMount() {
     this.reqRef = requestAnimationFrame(() => {
       this.getInfo();
-      this.timer = window.setInterval(() => this.getInfo(), 1000);
+      this.timer = window.setInterval(() => this.getInfo(), 1000 * 10);
     });
   }
 
