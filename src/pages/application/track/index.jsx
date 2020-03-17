@@ -3,17 +3,19 @@ import React, { Component } from 'react';
 import { PageHeaderWrapper } from '@ant-design/pro-layout';
 import { connect } from 'dva';
 import styles from './style.less';
+import { getSocketUrl } from '@/utils/settings';
 
 const { Paragraph } = Typography;
 
 class Check extends Component {
   timer = undefined;
   reqRef = undefined;
+  socket = undefined;
 
   componentDidMount() {
     this.reqRef = requestAnimationFrame(() => {
-      this.getInfo();
-      this.timer = window.setInterval(() => this.getInfo(), 1000 * 10);
+      this.connectSocket();
+      this.timer = window.setInterval(() => this.connectSocket(), 1000 * 10);
     });
   }
 
@@ -24,13 +26,46 @@ class Check extends Component {
     });
 
     clearInterval(this.timer);
+    this.closeSocket();
     cancelAnimationFrame(this.reqRef);
   }
 
-  getInfo() {
+  connectSocket() {
+    if (this.socket !== undefined) {
+      return;
+    }
+
+    // 建立WebSocket连接
+    this.socket = new WebSocket(getSocketUrl() + "track");
+
+    this.socket.onmessage = msg => {
+      const msgMap = JSON.parse(msg.data);
+      console.log("收到数据", msgMap);
+      this.socketInfo(msgMap)
+    };
+
+    this.socket.onopen = () => {
+      console.log("WebSocket连接成功");
+    };
+
+    this.socket.onclose = () => {
+      console.log("WebSocket关闭连接s");
+      this.socket = undefined;
+    };
+  }
+
+  closeSocket() {
+    if (this.socket !== undefined) {
+      this.socket.close();
+      this.socket = undefined;
+    }
+  }
+
+  socketInfo(msg) {
     const { dispatch } = this.props;
     dispatch({
       type: 'application/track',
+      payload: msg,
     });
   }
 
