@@ -14,6 +14,7 @@ class Check extends Component {
 
   componentDidMount() {
     this.reqRef = requestAnimationFrame(() => {
+      this.getInfo();
       this.connectSocket();
       this.timer = window.setInterval(() => this.connectSocket(), 1000 * 10);
     });
@@ -28,6 +29,13 @@ class Check extends Component {
     clearInterval(this.timer);
     this.closeSocket();
     cancelAnimationFrame(this.reqRef);
+  }
+
+  getInfo() {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'application/info',
+    });
   }
 
   connectSocket() {
