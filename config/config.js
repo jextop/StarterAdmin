@@ -79,7 +79,7 @@ export default {
       routes: [
         {
           path: '/',
-          redirect: '/application/track',
+          redirect: '/application/kitchen',
         },
 
         {
@@ -114,7 +114,13 @@ export default {
               routes: [
                 {
                   path: '/application',
-                  redirect: '/application/track',
+                  redirect: '/application/kitchen',
+                },
+                {
+                  name: 'kitchen',
+                  icon: 'profile',
+                  path: '/application/kitchen',
+                  component: './application/kitchen',
                 },
                 {
                   name: 'track',

@@ -7,7 +7,7 @@ import { getSocketUrl } from '@/utils/settings';
 
 const { Paragraph } = Typography;
 
-class Track extends Component {
+class Kitchen extends Component {
   timer = undefined;
   reqRef = undefined;
   socket = undefined;
@@ -23,7 +23,7 @@ class Track extends Component {
   componentWillUnmount() {
     const { dispatch } = this.props;
     dispatch({
-      type: 'track/clear',
+      type: 'kitchen/clear',
     });
 
     clearInterval(this.timer);
@@ -34,7 +34,7 @@ class Track extends Component {
   getInfo() {
     const { dispatch } = this.props;
     dispatch({
-      type: 'track/info',
+      type: 'kitchen/info',
     });
   }
 
@@ -44,7 +44,7 @@ class Track extends Component {
     }
 
     // 建立WebSocket连接
-    this.socket = new WebSocket(getSocketUrl() + 'track');
+    this.socket = new WebSocket(getSocketUrl() + 'kitchen');
 
     this.socket.onmessage = msg => {
       const msgMap = JSON.parse(msg.data);
@@ -72,22 +72,19 @@ class Track extends Component {
   socketInfo(msg) {
     const { dispatch } = this.props;
     dispatch({
-      type: 'track/data',
+      type: 'kitchen/data',
       payload: msg,
     });
   }
 
   render() {
-    const { track, loading } = this.props;
+    const { kitchen, loading } = this.props;
 
     function formatArr(objArr) {
       let arr = []
-      for (const i in objArr) {
-        const obj = objArr[i]
-        if (obj !== undefined) {
-          arr.push(obj)
-        }
-      }
+      objArr.forEach(item => {
+        arr.push('' + item.name + ': ' + item.normalizedValue.toFixed(2));
+      });
 
       const objStr = JSON.stringify(arr, null, 1);
       if (objStr === undefined) {
@@ -109,17 +106,17 @@ class Track extends Component {
               sm: 1,
               xs: 1,
             }}
-            dataSource={track.items}
+            dataSource={kitchen.items}
             renderItem={item => {
               return (
-                <List.Item key={item.uid}>
+                <List.Item key={item.temp}>
                   <Card
                     hoverable
                     className={styles.card}
                   >
                     <Card.Meta
-                      avatar={item.uid}
-                      title={formatArr([item.ip])}
+                      avatar={item.temp}
+                      title={'' + item.items.length}
                       description={
                         <Paragraph
                           className={styles.item}
@@ -127,7 +124,7 @@ class Track extends Component {
                             rows: 3,
                           }}
                         >
-                          {item.addr}
+                          {formatArr(item.items)}
                         </Paragraph>
                       }
                     />
@@ -142,7 +139,7 @@ class Track extends Component {
   }
 }
 
-export default connect(({ track, loading }) => ({
-  track,
-  loading: loading.models.track,
-}))(Track);
+export default connect(({ kitchen, loading }) => ({
+  kitchen,
+  loading: loading.models.kitchen,
+}))(Kitchen);
