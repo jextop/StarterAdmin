@@ -79,7 +79,7 @@ export default {
       routes: [
         {
           path: '/',
-          redirect: '/application/kitchen',
+          redirect: '/application/speech',
         },
 
         {
@@ -114,19 +114,25 @@ export default {
               routes: [
                 {
                   path: '/application',
-                  redirect: '/application/kitchen',
+                  redirect: '/application/speech',
                 },
                 {
-                  name: 'kitchen',
-                  icon: 'profile',
-                  path: '/application/kitchen',
-                  component: './application/kitchen',
+                  name: 'speech',
+                  icon: 'team',
+                  path: '/application/speech',
+                  component: './application/speech',
                 },
                 {
                   name: 'track',
                   icon: 'eye',
                   path: '/application/track',
                   component: './application/track',
+                },
+                {
+                  name: 'kitchen',
+                  icon: 'profile',
+                  path: '/application/kitchen',
+                  component: './application/kitchen',
                 },
               ],
             },

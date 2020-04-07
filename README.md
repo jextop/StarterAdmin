@@ -2,6 +2,10 @@
 AntDesign Pro
 https://ant.design/components/icon/
 
+# 一键部署Web服务
+https://github.com/jextop/StarterDeploy
+
+# 开发调试
 ## 依赖环境
 Node, npm
 
@@ -24,6 +28,8 @@ VS Code
 
 ## 停止服务
 ./down.sh
+
+# 服务信息
 
 | 开发运行环境     | URL:Port                                |  备注              |
 | ------------     | --------------------------------------  | :----------------- |
