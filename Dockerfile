@@ -9,6 +9,7 @@ WORKDIR /code
 # package and copy web files
 RUN cnpm install; \
     npm run build; \
+    ls ./dist; \
     \
     mv ./dist/* /usr/share/nginx/html; \
     mv ./public/favicon.png /usr/share/nginx/html; \
