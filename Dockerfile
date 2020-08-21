@@ -11,14 +11,15 @@ RUN cnpm install; \
     npm run build; \
     \
     mv ./dist/* /usr/share/nginx/html; \
-    mv ./public/favicon.png /usr/share/nginx/html
+    mv ./public/favicon.png /usr/share/nginx/html; \
+    \
+    cd ..; \
+    rm -rf /code; \
+    ls -al
 
 # config
 COPY ./deploy/conf/ /etc/nginx/
 
 WORKDIR /etc/nginx
-
-# delete code
-RUN rm -rf /code
 
 EXPOSE 8010

@@ -79,7 +79,7 @@ export default {
       routes: [
         {
           path: '/',
-          redirect: '/application/speech',
+          redirect: '/application/track',
         },
 
         {
