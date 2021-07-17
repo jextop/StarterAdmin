@@ -2,34 +2,41 @@
 AntDesign Pro
 https://ant.design/components/icon/
 
-# 一键部署Web服务
-https://github.com/jextop/StarterDeploy
+## 一键部署Web服务
+https://gitee.com/jext/StarterDeploy
 
-# 开发调试
-## 依赖环境
+## 开发调试
+
+### 依赖环境
 Node, npm
 
-## 开发环境
+### 开发环境
 VS Code
 
-# 启动依赖服务
-## 安装Docker
+## 启动依赖服务
+
+### 安装Docker
 - https://docs.docker.com/install/linux/docker-ce/ubuntu/
 - https://docs.docker.com/docker-for-windows/install/
 
-## 拉取镜像
-./pull.sh
+### 拉取镜像
+docker-compose pull
 
-## 启动服务
-./up.sh
+### 启动服务
+docker-compose up
 
-## 查看日志
-./logs.sh
+### 查看日志
+docker-compose logs -ft | grep --color -i -e error -e warn -e version -e exception
 
-## 停止服务
-./down.sh
+或者使用sh文件：./logs.sh
 
-# 服务信息
+### 进入容器
+docker exec -it admin_admin_1 bash
+
+### 停止服务
+docker-compose down
+
+## 服务信息
 
 | 开发运行环境     | URL:Port                                |  备注              |
 | ------------     | --------------------------------------  | :----------------- |
@@ -46,10 +53,10 @@ VS Code
 
 ![](https://github.com/jextop/StarterAdmin/blob/master/Admin.png)
 
-# apt -y install npm
+## apt -y install npm
 npm install
 npm start
 npm run build
 
-# cnpm: http://npm.taobao.org/
+## cnpm: http://npm.taobao.org/
 npm install -g cnpm --registry=https://registry.npm.taobao.org
